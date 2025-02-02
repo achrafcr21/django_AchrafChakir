@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h1>Es mostra informació del professor de M06 de DAW2</h1>
+<ul>
+    {% for key, value in t.items %}
+        <li>Nom: {{ value.name }}</li>
+        <li>Cognom: {{ value.surname }}</li>
+        <li>Edat: {{ value.age }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
