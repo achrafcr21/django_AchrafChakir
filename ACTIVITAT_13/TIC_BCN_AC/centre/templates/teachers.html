@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h1>Informació del professorat de M06 DAW2</h1>
+<ul>
+    {% for teacher in teachers %}
+        <li>ID: {{ teacher.id }}</li>
+        <li>Nom: {{ teacher.name }}</li>
+        <li>Cognom: {{ teacher.surname }}</li>
+        <li>Edat: {{ teacher.age }}</li>
+        <li>Rol: {{ teacher.role }}</li>
+        <li>Cursos impartits:
+            <ul>
+                {% for course in teacher.courses %}
+                    <li>{{ course }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

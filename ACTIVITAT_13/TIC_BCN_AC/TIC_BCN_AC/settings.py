@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'ITIC_DB',
         'USER': 'ITIC_user',  # ← ¡Corrige esto!
         'PASSWORD': 'ITIC',
-        'HOST': 'db',  # O prueba con 'db'
+        'HOST': 'localhost',  # O prueba con 'db'
         'PORT': '5432',
     }
 }
