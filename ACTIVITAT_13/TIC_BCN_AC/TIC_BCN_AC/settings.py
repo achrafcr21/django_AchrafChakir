@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'centre.apps.CentreConfig',
+    'pasApas.apps.PasapasConfig',
+    'autenticacio.apps.AutenticacioConfig',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'TIC_BCN_AC.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ITIC_DB',
-        'USER': 'ITIC_user',  # ← ¡Corrige esto!
+        'USER': 'ITIC_user',
         'PASSWORD': 'ITIC',
-        'HOST': 'localhost',  # O prueba con 'db'
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
