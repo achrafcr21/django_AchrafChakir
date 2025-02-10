@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h1>Informació de l'alumnat de M06 DAW2</h1>
+<ul>
+    {% for student in students %}
+        <li>Nom: {{ student.name }}</li>
+        <li>Cognom: {{ student.surname }}</li>
+        <li>Edat: {{ student.age }}</li>
+        <li>Mòduls matriculats:
+            <ul>
+                {% for module in student.modules %}
+                    <li>{{ module }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
