@@ -40,10 +40,17 @@ def login_con_sesion(request):
     return render(request, 'autenticacio/login.html', {'form': form})
 
 def inicio(request):
+    # Si hay sesión, usar el ID de la sesión
     if request.session.get('usuario_id'):
         usuario = Usuario.objects.get(id=request.session['usuario_id'])
-        return render(request, 'autenticacio/inicio.html', {'usuario': usuario})
-    return redirect('login_session')
+        return render(request, 'autenticacio/inicio.html', {'usuario': usuario, 'con_sesion': True})
+    
+    # Si no hay sesión, intentar obtener el usuario de la base de datos
+    try:
+        usuario = Usuario.objects.first()  # Para el login sin sesión
+        return render(request, 'autenticacio/inicio.html', {'usuario': usuario, 'con_sesion': False})
+    except Usuario.DoesNotExist:
+        return redirect('login_no_session')
 
 def logout_view(request):
     if 'usuario_id' in request.session:

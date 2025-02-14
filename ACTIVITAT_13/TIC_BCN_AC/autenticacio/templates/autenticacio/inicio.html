@@ -15,7 +15,9 @@
                     <div class="card-body">
                         <h4>¡Hola, {{ usuario.nombre }} {{ usuario.apellido }}!</h4>
                         <p>Has iniciado sesión correctamente.</p>
-                        <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesión</a>
+                        {% if con_sesion %}
+                            <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesión</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
